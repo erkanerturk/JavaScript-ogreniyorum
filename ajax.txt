@@ -1,0 +1,5 @@
+<div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, culpa commodi cum illo cupiditate explicabo cumque quisquam
+    suscipit, alias quae quasi repellat omnis corrupti unde! Debitis cumque beatae eius consequuntur?</p>
+  <button type="button" onclick="alertCome()">Alert</button>
+</div>

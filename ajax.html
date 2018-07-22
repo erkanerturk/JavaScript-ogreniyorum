@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div id="demo">
+    <h1>The XMLHttpRequest Object</h1>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+  </div>
+
+  <script>
+    const loadDoc = () => {
+      const xhttp = new XMLHttpRequest();
+
+      // Durum değişikliğinde tetiklenecek fonksiyon
+      xhttp.onreadystatechange = () => {
+        switch (xhttp.readyState) {
+          case 0:
+            document.getElementById('demo').innerHTML = 'İstek oluşturulamadı';
+            break;
+          case 1:
+            document.getElementById('demo').innerHTML = 'Sunucu ile bağlantı kuruldu';
+            break;
+          case 2:
+            document.getElementById('demo').innerHTML = 'İstek iletildi';
+            break;
+          case 3:
+            document.getElementById('demo').innerHTML = 'İstek işleniyor';
+            break;
+          case 4:
+            if (xhttp.status === 200) {
+              document.getElementById('demo').innerHTML = xhttp.responseText;
+            } else if (xhttp.status === 404) {
+              document.getElementById('demo').innerHTML = 'Sayfa Bulunamadı';
+            }
+            break;
+          default:
+            break;
+        }
+      };
+      // open(method,url,async) son parametre true ise iletişim asenkron olur.
+      xhttp.open('GET', 'ajax_test.txt', true);
+      xhttp.send();
+    };
+  </script>
+</body>
+
+</html>
